@@ -254,7 +254,6 @@ fov = 55.0
 
 [node name="bedroom" type="Node3D" parent="." unique_id=1595489636]
 transform = Transform3D(0.99988526, 0, 0.015148812, 0, 1, 0, -0.015148812, 0, 0.99988526, -405.3801, 5.8865867, -20.828846)
-visible = false
 
 [node name="bedroom" type="Sprite3D" parent="bedroom" unique_id=1324228657]
 transform = Transform3D(2.5679264, 0, -0.019451637, 0, 2.568, 0, 0.019451637, 0, 2.5679264, 261.6384, -4.080536, 14.25569)
@@ -270,6 +269,7 @@ script = ExtResource("54_c2tsv")
 
 [node name="outside" type="Node3D" parent="." unique_id=1603548870]
 transform = Transform3D(0.715, 0, -9.313226e-10, 0, 0.71499985, 0, 0, 0, 0.7149999, -144.58676, 1.1538777, -5.5426073)
+visible = false
 
 [node name="cdrlc" type="Sprite3D" parent="outside" unique_id=556774441]
 transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -5.969635, 2.6386557, -1.9655862)

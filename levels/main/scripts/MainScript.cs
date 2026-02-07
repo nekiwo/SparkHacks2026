@@ -83,10 +83,15 @@ public partial class MainScript : Node3D
 			_root.GetNode<Node3D>("workshop1").Visible = false;
 			_root.GetNode<Node3D>("workshop2").Visible = false;
 			_root.GetNode<Node3D>("dinner").Visible = true;
-			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/dinner/conversation.json", effects);
+			if(rizzScore > 0){
+				await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/dinner/acceptConversation.json", effects);
+			} else {
+				await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/dinner/rejectConversation.json", effects);
+			}
 		});
 		
-
+		
+		
 		await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/apartment/bedroom.json", effects);
 	}
 }
