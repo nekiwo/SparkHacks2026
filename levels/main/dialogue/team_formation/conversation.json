@@ -1,0 +1,93 @@
+{
+  "Start": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Are we all here?",
+    "Effect": "",
+    "Next": "2"
+  },
+  "2": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I think so.",
+    "Effect": "",
+    "Next": "3"
+  },
+  "3": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "If it's just us then, yeah.",
+    "Effect": "",
+    "Next": "4"
+  },
+  "4": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Do we have any ideas for this?",
+    "Effect": "",
+    "Next": "5"
+  },
+  "5": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "I kind of like the idea of a Weather Alert System.",
+    "Effect": "",
+    "Next": "6"
+  },
+  "6": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "I was thinking of doing a Study Planner.",
+    "Effect": "",
+    "Next": "7"
+  },
+  "7": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "What did you wanna do? Or did you have your own idea?",
+    "Effect": "",
+    "Next": "8"
+  },
+  "8": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I want to...",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "make that Weather Alert System.",
+        "Next": "9"
+      },
+      {
+        "Content": "make that Study Planner.",
+        "Next": "10"
+      },
+      {
+        "Content": "make a Fitness Goal Tracker.",
+        "Next": "11"
+      }
+    ]
+  },
+  "9": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Dang. That's alright though, I'm down to make that.",
+    "Effect": "",
+    "Next": "STOP"
+  },
+  "10": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "You actually want to make my idea? That's great!",
+    "Effect": "",
+    "Next": "STOP"
+  },
+  "11": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Your idea sounds cool, I'm down to make that.",
+    "Effect": "",
+    "Next": "STOP"
+  }
+}
