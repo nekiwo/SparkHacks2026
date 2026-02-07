@@ -254,6 +254,7 @@ fov = 55.0
 
 [node name="bedroom" type="Node3D" parent="." unique_id=1595489636]
 transform = Transform3D(0.99988526, 0, 0.015148812, 0, 1, 0, -0.015148812, 0, 0.99988526, -405.3801, 5.8865867, -20.828846)
+visible = false
 
 [node name="bedroom" type="Sprite3D" parent="bedroom" unique_id=1324228657]
 transform = Transform3D(2.5679264, 0, -0.019451637, 0, 2.568, 0, 0.019451637, 0, 2.5679264, 261.6384, -4.080536, 14.25569)
@@ -269,7 +270,6 @@ script = ExtResource("54_c2tsv")
 
 [node name="outside" type="Node3D" parent="." unique_id=1603548870]
 transform = Transform3D(0.715, 0, -9.313226e-10, 0, 0.71499985, 0, 0, 0, 0.7149999, -144.58676, 1.1538777, -5.5426073)
-visible = false
 
 [node name="cdrlc" type="Sprite3D" parent="outside" unique_id=556774441]
 transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -5.969635, 2.6386557, -1.9655862)
@@ -277,6 +277,15 @@ texture = ExtResource("55_1njar")
 
 [node name="c1" type="AnimatedSprite3D" parent="outside" unique_id=519669349]
 transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, 1.6773834, -1.0511055, -2.0958238)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="c2" type="AnimatedSprite3D" parent="outside" unique_id=1614075188]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, 3.6843262, -1.0511055, -1.7169938)
+modulate = Color(0, 0.72156864, 0.8745098, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
@@ -299,6 +308,15 @@ sprite_frames = SubResource("SpriteFrames_iab0w")
 frame_progress = 0.1917711
 script = ExtResource("54_c2tsv")
 
+[node name="c2" type="AnimatedSprite3D" parent="lunch" unique_id=1382482400]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -3.9674225, 0.18107891, -4.0135126)
+modulate = Color(0, 0.72156864, 0.8745098, 1)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
 [node name="lecture" type="Node3D" parent="." unique_id=297783096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.17908, -3.0517578e-05, -3.6907892)
 visible = false
@@ -307,8 +325,9 @@ visible = false
 transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -1.6516266, 1.4919689, -2.576542)
 texture = ExtResource("56_cx3x5")
 
-[node name="c1" type="AnimatedSprite3D" parent="lecture" unique_id=1858479344]
+[node name="c2" type="AnimatedSprite3D" parent="lecture" unique_id=1858479344]
 transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+modulate = Color(1.732707e-06, 0.72249234, 0.87272716, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
@@ -318,15 +337,23 @@ script = ExtResource("54_c2tsv")
 [node name="UI" parent="." unique_id=1433847682 instance=ExtResource("2_i6lsf")]
 
 [node name="teamFormation" type="Node3D" parent="." unique_id=1191247554]
+visible = false
 
 [node name="insideCDRLC" type="Sprite3D" parent="teamFormation" unique_id=252591247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.78937, 4.764829, -7.458927)
-visible = false
 texture = ExtResource("54_h45dr")
 
 [node name="c1" type="AnimatedSprite3D" parent="teamFormation" unique_id=1442710595]
 transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -141.91989, -0.6294389, -7.508606)
-visible = false
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="c2" type="AnimatedSprite3D" parent="teamFormation" unique_id=480247213]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -144.9736, -0.6294389, -7.508606)
+modulate = Color(0, 0.72156864, 0.8745098, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
@@ -334,15 +361,23 @@ frame_progress = 0.1917711
 script = ExtResource("54_c2tsv")
 
 [node name="workshop1" type="Node3D" parent="." unique_id=1566257886]
+visible = false
 
 [node name="lectureHall" type="Sprite3D" parent="workshop1" unique_id=316271830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.9274, 1.414608, -5.206747)
-visible = false
 texture = ExtResource("55_nr731")
 
 [node name="c1" type="AnimatedSprite3D" parent="workshop1" unique_id=1448994400]
 transform = Transform3D(0.26154, 0, -0.0153842615, 0, 0.3249509, 0, 0.003962475, 0, 1.0154257, -144.38144, 1.4058594, -5.717411)
-visible = false
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="c2" type="AnimatedSprite3D" parent="workshop1" unique_id=1908211960]
+transform = Transform3D(0.26154, 0, -0.0153842615, 0, 0.3249509, 0, 0.003962475, 0, 1.0154257, -143.88669, 1.4058594, -5.1759944)
+modulate = Color(0, 0.72156864, 0.8745098, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
@@ -350,15 +385,15 @@ frame_progress = 0.1917711
 script = ExtResource("54_c2tsv")
 
 [node name="workshop2" type="Node3D" parent="." unique_id=1924516588]
+visible = false
 
 [node name="lectureHall" type="Sprite3D" parent="workshop2" unique_id=1272447877]
 transform = Transform3D(1.00576, 0, 0, 0, 1.00576, 0, 0, 0, 1.00576, -144.50279, 1.2476273, -5.9800415)
-visible = false
 texture = ExtResource("56_1j6i2")
 
-[node name="c1" type="AnimatedSprite3D" parent="workshop2" unique_id=1476865458]
+[node name="c2" type="AnimatedSprite3D" parent="workshop2" unique_id=1476865458]
 transform = Transform3D(0.5526025, 0, -0.015262467, 0, 0.54164726, 0, 0.008372233, 0, 1.0073868, -145.86658, 0.56341493, -6.6585617)
-visible = false
+modulate = Color(0, 0.72156864, 0.8745098, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
@@ -366,15 +401,23 @@ frame_progress = 0.1917711
 script = ExtResource("54_c2tsv")
 
 [node name="dinner" type="Node3D" parent="." unique_id=568724560]
+visible = false
 
 [node name="exitCDRLC" type="Sprite3D" parent="dinner" unique_id=42278296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.29872, 5.5377264, -6.7775545)
-visible = false
 texture = ExtResource("57_2fgvb")
 
 [node name="c1" type="AnimatedSprite3D" parent="dinner" unique_id=983966399]
 transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -145.60231, -1.0019364, -8.567135)
-visible = false
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="c2" type="AnimatedSprite3D" parent="dinner" unique_id=1366868238]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -143.31754, -1.0019369, -8.205852)
+modulate = Color(0, 0.72156864, 0.8745098, 1)
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
