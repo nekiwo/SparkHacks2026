@@ -55,7 +55,7 @@ public partial class DialoguePanel : PanelContainer
 
 			// Execute effect
 			GD.Print("EFFECT: " + currDialogue.Effect);
-			if (currDialogue.Effect != "")
+			if (currDialogue.Effect != "" && currDialogue.Effect != "increaseRizz" && currDialogue.Effect != "decreaseRizz")
 			{
 				GD.Print("exiting at l60");
 				_dialogueAnim.Play("PopDown");
@@ -63,6 +63,11 @@ public partial class DialoguePanel : PanelContainer
 				await _transition.PlayIn();
 				effects[currDialogue.Effect]();
 				return;
+			}
+
+			if (currDialogue.Effect == "increaseRizz" || currDialogue.Effect == "decreaseRizz")
+			{
+				effects[currDialogue.Effect]();
 			}
 			
 			if (currDialogue.Options == null || currDialogue.Options.Count == 0)
