@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bkrtrpm2cfwgu"]
+
+[node name="Node3D" type="Node3D" unique_id=194959693]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=680231607]
+
+[node name="DialoguePanel" type="PanelContainer" parent="CanvasLayer" unique_id=1607413635]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Div" type="HSplitContainer" parent="CanvasLayer/DialoguePanel" unique_id=787664524]
+layout_mode = 2
+
+[node name="Content" type="RichTextLabel" parent="CanvasLayer/DialoguePanel/Div" unique_id=1760451628]
+layout_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="CanvasLayer/DialoguePanel/Div" unique_id=430811503]
+layout_mode = 2
+
+[node name="Option0" type="RichTextLabel" parent="CanvasLayer/DialoguePanel/Div/Options" unique_id=194162932]
+layout_mode = 2
+
+[node name="Option1" type="RichTextLabel" parent="CanvasLayer/DialoguePanel/Div/Options" unique_id=283666550]
+layout_mode = 2
