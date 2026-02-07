@@ -39,6 +39,14 @@
     "Sprite": "C2",
     "Content": "I'd love to!",
     "Effect": "",
+    "Next": "7"
+  },
+  "7": {
+    "Speaker": "System",
+    "Sprite": "System",
+    "Content": "You became good friends. YOU WIN!",
+    "Effect": "",
     "Next": "STOP"
   }
 }
+

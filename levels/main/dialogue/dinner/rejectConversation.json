@@ -39,6 +39,14 @@
     "Sprite": "C2",
     "Content": "I think I'll just head home instead.",
     "Effect": "",
+    "Next": "7"
+  },
+  "7": {
+    "Speaker": "System",
+    "Sprite": "System",
+    "Content": "You never spoke to that person again. YOU LOSE.",
+    "Effect": "",
     "Next": "STOP"
   }
 }
+

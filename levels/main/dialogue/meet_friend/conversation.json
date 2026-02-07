@@ -97,14 +97,14 @@
     "Speaker": "C2",
     "Sprite": "C2",
     "Content": "but I'll skip to get lunch.",
-    "Effect": "",
+    "Effect": "increaseRizz",
     "Next": "15"
   },
   "14": {
     "Speaker": "C2",
     "Sprite": "C2",
     "Content": "so I can't go.",
-    "Effect": "",
+    "Effect": "decreaseRizz",
     "Next": "16"
   },
   "15": {

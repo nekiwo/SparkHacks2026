@@ -73,21 +73,21 @@
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "Dang. That's alright though, I'm down to make that.",
-    "Effect": "",
+    "Effect": "decreaseRizz",
     "Next": "12"
   },
   "10": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "You actually want to make my idea? That's great!",
-    "Effect": "",
+    "Effect": "increaseRizz",
     "Next": "12"
   },
   "11": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "Your idea sounds cool, I'm down to make that.",
-    "Effect": "",
+    "Effect": "decreaseRizz",
     "Next": "12"
   },
   "12": {

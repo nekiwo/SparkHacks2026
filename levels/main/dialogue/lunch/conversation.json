@@ -34,7 +34,7 @@
     "Speaker": "C2",
     "Sprite": "C2",
     "Content": "I skipped my class.",
-    "Effect": "",
+    "Effect": "decreaseRizz",
     "Next": "5"
   },
   "5": {
@@ -55,7 +55,7 @@
     "Speaker": "C2",
     "Sprite": "C2",
     "Content": "Oh, what a shame.",
-    "Effect": "",
+    "Effect": "increaseRizz",
     "Next": "8"
   },
   "8": {
@@ -86,7 +86,7 @@
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "That's good. I'm kinda nervous about it myself.",
-    "Effect": "",
+    "Effect": "increaseRizz",
     "Next": "",
     "Options": [
       {
