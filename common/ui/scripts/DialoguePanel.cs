@@ -10,6 +10,7 @@ public partial class DialoguePanel : PanelContainer
 	private RichTextLabel _dialogueText = null;
 	private RichTextLabel _speakerText = null;
 	private VBoxContainer _dialogueOptions = null;
+	private Transition _transition = null;
 	// private PlayerControl _player = null;
 
 	private StringName _interact = new StringName("interact");
@@ -17,6 +18,7 @@ public partial class DialoguePanel : PanelContainer
 
 	public async Task TriggerDialogue(string dialoguePath, Dictionary<string, Action> effects, bool playAnimations = true)
 	{
+		await _transition.PlayOut();
 		GD.Print("triggering " + dialoguePath);
 		// _player.Locked = true;
 
@@ -118,8 +120,12 @@ public partial class DialoguePanel : PanelContainer
 
 		if (currDialogue.Effect != "")
 		{
+			await _transition.PlayIn();
 			effects[currDialogue.Effect]();
+			return;
 		} 
+
+		await _transition.PlayIn();
 
 		// _player.Locked = false;
 	}
@@ -228,6 +234,7 @@ public partial class DialoguePanel : PanelContainer
 		_dialogueText = GetNode<RichTextLabel>("Div/Content");
 		_dialogueOptions = GetNode<VBoxContainer>("Div/Options");
 		_speakerText = GetNode<RichTextLabel>("Div/Speaker");
+		_transition = GetNode<Transition>("../Transition");
 		// _player = GetNode<PlayerControl>("../../Player");
 	}
 

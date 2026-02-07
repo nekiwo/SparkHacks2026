@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://7kfb1uen10iu" path="res://common/ui/sounds/mech.mp3" id="3_ueiip"]
 [ext_resource type="AudioStream" uid="uid://cho0300yneduv" path="res://common/ui/sounds/pop.mp3" id="4_ub8vx"]
 [ext_resource type="Texture2D" uid="uid://cs8fsgo7hpmmg" path="res://icon.svg" id="5_o8iwq"]
+[ext_resource type="Script" uid="uid://bk0wd5bnyxyg" path="res://common/ui/scripts/Transition.cs" id="6_6x8q5"]
 
 [sub_resource type="Animation" id="Animation_gonaa"]
 resource_name = "PopDown"
@@ -58,6 +59,76 @@ _data = {
 &"PopDown": SubResource("Animation_gonaa"),
 &"PopUp": SubResource("Animation_vc640"),
 &"RESET": SubResource("Animation_f6gjy")
+}
+
+[sub_resource type="Animation" id="Animation_ueiip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1932, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ub8vx"]
+resource_name = "in"
+length = 0.26666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1932, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o8iwq"]
+resource_name = "out"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1930, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6x8q5"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1932, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ueiip"]
+_data = {
+&"RESET": SubResource("Animation_ueiip"),
+&"in": SubResource("Animation_ub8vx"),
+&"out": SubResource("Animation_o8iwq"),
+&"transition": SubResource("Animation_6x8q5")
 }
 
 [node name="UI" type="CanvasLayer" unique_id=1433847682]
@@ -121,3 +192,13 @@ offset_right = 1861.0
 offset_bottom = 179.0
 texture = ExtResource("5_o8iwq")
 metadata/_edit_lock_ = true
+
+[node name="Transition" type="ColorRect" parent="." unique_id=1510291320]
+offset_left = -1932.0
+offset_right = -12.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_6x8q5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=1295295517]
+libraries/ = SubResource("AnimationLibrary_ueiip")
