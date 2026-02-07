@@ -10,7 +10,7 @@ public partial class MainScript : Node3D
 	{
 		_dialogueHandler = GetNode<DialoguePanel>("UI/DialoguePanel");
 
-		StartDialogue();        
+		// StartDialogue();   
 	}
 
 	public override void _Process(double delta)

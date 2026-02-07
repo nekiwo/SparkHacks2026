@@ -9,12 +9,16 @@ public partial class DialoguePanel : PanelContainer
 	private AnimationPlayer _dialogueAnim = null;
 	private RichTextLabel _dialogueText = null;
 	private VBoxContainer _dialogueOptions = null;
+	private PlayerControl _player = null;
 
 	private StringName _interact = new StringName("interact");
 	private bool _skipToggle = false;
 
 	public async Task TriggerDialogue(string dialoguePath, Dictionary<string, Action> effects, bool playAnimations = true)
 	{
+		GD.Print("triggering " + dialoguePath);
+		_player.Locked = true;
+
 		// Load and deserialize dialogue
 		FileAccess dialogueFile = FileAccess.Open(dialoguePath, FileAccess.ModeFlags.Read);
 		if (dialogueFile == null) GD.PushError(FileAccess.GetOpenError());
@@ -92,6 +96,15 @@ public partial class DialoguePanel : PanelContainer
 			_dialogueAnim.Play("PopDown");
 			await ToSignal(GetTree().CreateTimer(1.0), "timeout");
 		}
+
+		_dialogueText.Visible = true;
+		_dialogueOptions.Visible = false;
+		for (int j = 0; j < currDialogue.Options.Count; j++)
+		{
+			_GetOption(j).Visible = false;
+		}
+
+		_player.Locked = false;
 	}
 
 	private async Task _RevealText(string content)
@@ -197,6 +210,7 @@ public partial class DialoguePanel : PanelContainer
 		_dialogueAnim = GetNode<AnimationPlayer>("DialogueAnim");
 		_dialogueText = GetNode<RichTextLabel>("Div/Content");
 		_dialogueOptions = GetNode<VBoxContainer>("Div/Options");
+		_player = GetNode<PlayerControl>("../../Player");
 	}
 
 	public override void _Input(InputEvent @event)
