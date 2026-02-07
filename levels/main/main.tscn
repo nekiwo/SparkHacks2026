@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ovk1sra156h" path="res://common/control/assets/rightmainchar/_a_frm13,100.png" id="50_35ccc"]
 [ext_resource type="Texture2D" uid="uid://bygp75f7wifhg" path="res://common/control/assets/rightmainchar/_a_frm14,100.png" id="51_rp61y"]
 [ext_resource type="Script" uid="uid://dpbb04t1hfhpn" path="res://common/objects/scripts/InfoInteractable.cs" id="53_i6lsf"]
+[ext_resource type="Texture2D" uid="uid://b0hpaanixq65h" path="res://levels/main/assets/backgrounds/bedroom.webp" id="54_c8xaj"]
 
 [sub_resource type="Animation" id="Animation_gonaa"]
 resource_name = "PopDown"
@@ -108,11 +109,15 @@ _data = {
 &"RESET": SubResource("Animation_f6gjy")
 }
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_iab0w"]
-size = Vector2(10.94, 11.39)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8xaj"]
+transparency = 1
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_iab0w"]
-data = PackedVector3Array(5.47, 0, 5.6949997, -5.47, 0, 5.6949997, 5.47, 0, -5.6949997, -5.47, 0, 5.6949997, -5.47, 0, -5.6949997, 5.47, 0, -5.6949997)
+[sub_resource type="PlaneMesh" id="PlaneMesh_iab0w"]
+material = SubResource("StandardMaterial3D_c8xaj")
+size = Vector2(300, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c8xaj"]
+data = PackedVector3Array(150, 0, 15, -150, 0, 15, 150, 0, -15, -150, 0, 15, -150, 0, -15, 150, 0, -15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iab0w"]
 animations = [{
@@ -274,6 +279,12 @@ radius = 0.59033203
 [sub_resource type="SphereShape3D" id="SphereShape3D_c0umw"]
 radius = 1.1162373
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_c8xaj"]
+size = Vector2(11.935, 11.315)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1njar"]
+data = PackedVector3Array(5.9674997, 0, 5.6575, -5.9674997, 0, 5.6575, 5.9674997, 0, -5.6575, -5.9674997, 0, 5.6575, -5.9674997, 0, -5.6575, 5.9674997, 0, -5.6575)
+
 [node name="Node3D" type="Node3D" unique_id=194959693]
 script = ExtResource("1_iab0w")
 
@@ -337,16 +348,17 @@ texture = ExtResource("6_c0umw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=890724447]
 mesh = SubResource("PlaneMesh_iab0w")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1839000116]
-shape = SubResource("ConcavePolygonShape3D_iab0w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=62592154]
+shape = SubResource("ConcavePolygonShape3D_c8xaj")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1049987041 groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9112904, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.66956, 1.2679008, -10.11643)
 script = ExtResource("6_3ymrs")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=1282012110]
-transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, 0, 0, 0)
+transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, 0.20777893, 9.536743e-07, 1.0231705)
 billboard = 1
+render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
 frame_progress = 0.1917711
 
@@ -355,7 +367,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0019836426, 0)
 shape = SubResource("CylinderShape3D_vged4")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2142483066]
-transform = Transform3D(0.8596841, -0.23261593, 0.45478898, -0.09797189, 0.7986918, 0.59371114, -0.5013429, -0.5549606, 0.66383284, 1.4552441, 4.530613, 4.605896)
+transform = Transform3D(0.8817308, -0.15128481, 0.44683746, 0, 0.9471854, 0.32068655, -0.4717529, -0.28275922, 0.8351625, -143.14551, 1.4004354, -6.87224)
+fov = 55.0
 
 [node name="TestInteractable" type="Area3D" parent="." unique_id=2011912808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6041045, 0.8121805, -1.6538835)
@@ -364,6 +377,45 @@ InfoDialogueFilePath = "res://levels/main/dialogue/example.json"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestInteractable" unique_id=95554823]
 shape = SubResource("SphereShape3D_c0umw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1324228657]
+transform = Transform3D(1.6091596, -0.25823876, 0.8213058, 0, 1.7409694, 0.54740363, -0.86094743, -0.4826629, 1.5350672, -145.11044, 1.0380337, -11.612227)
+texture = ExtResource("54_c8xaj")
+
+[node name="bedroom" type="Node3D" parent="." unique_id=1745751820]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bedroom" unique_id=1666390613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.68788, 0, -7.719635)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bedroom/StaticBody3D" unique_id=1768182669]
+transform = Transform3D(-0.07789935, 0.81966096, 0.56752765, -0.9955142, -0.09461218, 0, 0.05369503, -0.5649818, 0.82335436, -2.2786713, -4.7683716e-07, 0.048964977)
+mesh = SubResource("PlaneMesh_c8xaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bedroom/StaticBody3D" unique_id=1400983888]
+transform = Transform3D(-0.07789935, 0.81966096, 0.56752765, -0.9955142, -0.09461218, 0, 0.05369503, -0.5649818, 0.82335436, -2.100586, 0, 0.14955568)
+shape = SubResource("ConcavePolygonShape3D_1njar")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="bedroom" unique_id=252848490]
+transform = Transform3D(0.104701996, 0, -0.9945036, 0, 1, 0, 0.9945036, 0, 0.104701996, -144.27339, 0, -9.149309)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bedroom/StaticBody3D2" unique_id=2043168023]
+transform = Transform3D(-0.084327064, 0.8872937, 0.4534307, -0.9955142, -0.094612174, 4.2284105e-09, 0.042900063, -0.45139673, 0.8912918, -2.3218422, -4.7683716e-07, 0.30671692)
+mesh = SubResource("PlaneMesh_c8xaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bedroom/StaticBody3D2" unique_id=896300338]
+transform = Transform3D(-0.07789935, 0.81966096, 0.56752765, -0.9955142, -0.09461218, 0, 0.05369503, -0.5649818, 0.82335436, -2.100586, 0, 0.14955568)
+shape = SubResource("ConcavePolygonShape3D_1njar")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="bedroom" unique_id=1022707678]
+transform = Transform3D(-0.30433252, 0, -0.95256615, 0, 1, 0, 0.95256615, 0, -0.30433252, -141.98474, 0, -10.202302)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bedroom/StaticBody3D3" unique_id=1604778883]
+transform = Transform3D(-0.07789935, 0.81966096, 0.56752765, -0.9955142, -0.09461218, 0, 0.05369503, -0.5649818, 0.82335436, -2.2786713, -4.7683716e-07, 0.048964977)
+mesh = SubResource("PlaneMesh_c8xaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bedroom/StaticBody3D3" unique_id=933577207]
+transform = Transform3D(-0.07789935, 0.81966096, 0.56752765, -0.9955142, -0.09461218, 0, 0.05369503, -0.5649818, 0.82335436, -2.100586, 0, 0.14955568)
+shape = SubResource("ConcavePolygonShape3D_1njar")
 
 [connection signal="body_entered" from="TestInteractable" to="TestInteractable" method="_on_body_entered"]
 [connection signal="body_exited" from="TestInteractable" to="TestInteractable" method="_on_body_exited"]

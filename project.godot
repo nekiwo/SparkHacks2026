@@ -24,6 +24,10 @@ window/size/resizable=false
 
 project/assembly_name="SparkHacks2026"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+
 [global_group]
 
 player=""

@@ -1,0 +1,124 @@
+{
+  "Start": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Hey, I'm here.",
+    "Effect": "",
+    "Next": "2"
+  },
+  "2": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "Oh, nice. Still wanna do that hackathon?",
+    "Effect": "",
+    "Next": "3"
+  },
+  "3": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Aren't we still down a member?",
+    "Effect": "",
+    "Next": "4"
+  },
+  "4": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "Actually, a friend of mine was interested in coming, but didn't have a team, so...",
+    "Effect": "",
+    "Next": "5"
+  },
+  "5": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "Here they come now.",
+    "Effect": "",
+    "Next": "6"
+  },
+  "6": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Nice to meet you.",
+    "Effect": "",
+    "Next": "7"
+  },
+  "7": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Nice to meet you too.",
+    "Effect": "",
+    "Next": "8"
+  },
+  "8": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "You wanted to join us for the hackathon?",
+    "Effect": "",
+    "Next": "9"
+  },
+  "9": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Yeah, I didn't have a team, so I wanted to join you guys.",
+    "Effect": "",
+    "Next": "10"
+  },
+  "10": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "That's cool with me. I skipped breakfast so I'm going to grab something to eat.",
+    "Effect": "",
+    "Next": "11"
+  },
+  "11": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Did either of you wanna come?",
+    "Effect": "",
+    "Next": "12"
+  },
+  "12": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I have a lecture...",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "but I'll skip to get lunch.",
+        "Next": "13"
+      },
+      {
+        "Content": "so I can't go.",
+        "Next": "14"
+      }
+    ]
+  },
+  "13": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "but I'll skip to get lunch.",
+    "Effect": "",
+    "Next": "15"
+  },
+  "14": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "so I can't go.",
+    "Effect": "",
+    "Next": "16"
+  },
+  "15": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Good, let's go.",
+    "Effect": "lunchScene",
+    "Next": "STOP"
+  },
+  "16": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Damn, bummer.",
+    "Effect": "lectureScene",
+    "Next": "STOP"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Start": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Morning.",
+    "Effect": "",
+    "Next": "2"
+  },
+  "2": {
+    "Speaker": "Bus Driver",
+    "Sprite": "Bus Driver",
+    "Content": "Morning.",
+    "Effect": "",
+    "Next": "STOP",
+    "Options": []
+  }
+}
