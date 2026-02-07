@@ -8,8 +8,9 @@ public partial class DialoguePanel : PanelContainer
 {
 	private AnimationPlayer _dialogueAnim = null;
 	private RichTextLabel _dialogueText = null;
+	private RichTextLabel _speakerText = null;
 	private VBoxContainer _dialogueOptions = null;
-	private PlayerControl _player = null;
+	// private PlayerControl _player = null;
 
 	private StringName _interact = new StringName("interact");
 	private bool _skipToggle = false;
@@ -17,7 +18,7 @@ public partial class DialoguePanel : PanelContainer
 	public async Task TriggerDialogue(string dialoguePath, Dictionary<string, Action> effects, bool playAnimations = true)
 	{
 		GD.Print("triggering " + dialoguePath);
-		_player.Locked = true;
+		// _player.Locked = true;
 
 		// Load and deserialize dialogue
 		FileAccess dialogueFile = FileAccess.Open(dialoguePath, FileAccess.ModeFlags.Read);
@@ -27,7 +28,8 @@ public partial class DialoguePanel : PanelContainer
 
 		// Load first speaker info
 		_dialogueText.VisibleCharacters = 0;
-		_dialogueText.Text = "[b]" + dialogueChain["Start"].Content + "[/b]";
+		_dialogueText.Text = dialogueChain["Start"].Content;
+		_speakerText.Text = "[b]" + dialogueChain["Start"].Speaker + "[/b]";
 
 		// Pop-up animation trigger
 		if (playAnimations)
@@ -42,11 +44,13 @@ public partial class DialoguePanel : PanelContainer
 		{
 			// Update info
 			_dialogueText.VisibleCharacters = 0;
-			_dialogueText.Text = "[b]" + currDialogue.Content + "[/b]";
+			_dialogueText.Text = currDialogue.Content;
+			_speakerText.Text = "[b]" + currDialogue.Speaker + "[/b]";
 
 			// TODO: Update speaker info
 
 			// Execute effect
+			GD.Print("EFFECT: " + currDialogue.Effect);
 			if (currDialogue.Effect != "")
 			{
 				effects[currDialogue.Effect]();
@@ -55,13 +59,14 @@ public partial class DialoguePanel : PanelContainer
 			await _RevealText(currDialogue.Content); // Text animation
 			// TODO: show continue icon
 			await _KeyboardInput(_interact); // Wait for button
-			if (currDialogue.Options.Count == 0)
+			if (currDialogue.Options == null || currDialogue.Options.Count == 0)
 			{
 				currDialogue = dialogueChain[currDialogue.Next];
 				continue;
 			}
 
 			// Show options
+			_speakerText.Visible = false;
 			_dialogueText.Visible = false;
 			_dialogueOptions.Visible = true;
 			for (int j = 0; j < currDialogue.Options.Count; j++)
@@ -78,6 +83,8 @@ public partial class DialoguePanel : PanelContainer
 			Dialogue nextDialogue = dialogueChain[currDialogue.Options[selectedOption].Next];
 			if (nextDialogue.Next != "STOP")
 			{
+
+				_speakerText.Visible = true;
 				_dialogueText.Visible = true;
 				_dialogueOptions.Visible = false;
 				for (int j = 0; j < currDialogue.Options.Count; j++)
@@ -97,14 +104,24 @@ public partial class DialoguePanel : PanelContainer
 			await ToSignal(GetTree().CreateTimer(1.0), "timeout");
 		}
 
+
+		_speakerText.Visible = true;
 		_dialogueText.Visible = true;
 		_dialogueOptions.Visible = false;
-		for (int j = 0; j < currDialogue.Options.Count; j++)
+		if (currDialogue.Options != null)
 		{
-			_GetOption(j).Visible = false;
+			for (int j = 0; j < currDialogue.Options.Count; j++)
+			{
+				_GetOption(j).Visible = false;
+			}
 		}
 
-		_player.Locked = false;
+		if (currDialogue.Effect != "")
+		{
+			effects[currDialogue.Effect]();
+		} 
+
+		// _player.Locked = false;
 	}
 
 	private async Task _RevealText(string content)
@@ -117,7 +134,7 @@ public partial class DialoguePanel : PanelContainer
 		{
 			if (_skipToggle)
 			{
-				_dialogueText.Text = $"[b]{content.Replace(@"|", "")}[/b]";
+				_dialogueText.Text = $"{content.Replace(@"|", "")}";
 				_dialogueText.VisibleCharacters = content.Length;
 				await ToSignal(GetTree(), "process_frame");
 				break;
@@ -131,7 +148,7 @@ public partial class DialoguePanel : PanelContainer
 			if (i != content.Length && content[i] == '|')
 			{
 				content = content.Substring(0, i) + content.Substring(i + 1, content.Length - i - 1);
-				_dialogueText.Text = $"[b]{content}[/b]";
+				_dialogueText.Text = $"{content}";
 				await ToSignal(GetTree().CreateTimer(0.4), "timeout");
 			}
 
@@ -153,11 +170,11 @@ public partial class DialoguePanel : PanelContainer
 	{
 		if (text.Length == charNum)
 		{
-			return $"[b]{text}[/b]";
+			return $"{text}";
 		}
 		var wavingChars = text.Substr(charNum, text.Length - charNum);
 		// return $"[b]{text[..charNum]}[wave amp=100.0 freq=0.0 connected=1]{wavingChars}[/wave][/b]";
-		return $"[b]{text[..charNum]}{wavingChars}[/b]";
+		return $"{text[..charNum]}{wavingChars}";
 	}
 
 	private async Task _KeyboardInput(StringName action)
@@ -210,7 +227,8 @@ public partial class DialoguePanel : PanelContainer
 		_dialogueAnim = GetNode<AnimationPlayer>("DialogueAnim");
 		_dialogueText = GetNode<RichTextLabel>("Div/Content");
 		_dialogueOptions = GetNode<VBoxContainer>("Div/Options");
-		_player = GetNode<PlayerControl>("../../Player");
+		_speakerText = GetNode<RichTextLabel>("Div/Speaker");
+		// _player = GetNode<PlayerControl>("../../Player");
 	}
 
 	public override void _Input(InputEvent @event)

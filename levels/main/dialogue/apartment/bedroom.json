@@ -28,7 +28,7 @@
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "I'm tired. I'll take the bus.",
-    "Effect": "BusScene",
+    "Effect": "WalkScene",
     "Next": "STOP",
     "Options": []
   }

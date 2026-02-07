@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dx6syrldr6cin" path="res://common/ui/scripts/DialoguePanel.cs" id="2_l8qe7"]
 [ext_resource type="AudioStream" uid="uid://7kfb1uen10iu" path="res://common/ui/sounds/mech.mp3" id="3_gonaa"]
 [ext_resource type="AudioStream" uid="uid://cho0300yneduv" path="res://common/ui/sounds/pop.mp3" id="4_iab0w"]
-[ext_resource type="Script" uid="uid://dtu6nobt5huom" path="res://common/control/scripts/PlayerControl.cs" id="6_3ymrs"]
 [ext_resource type="Texture2D" uid="uid://cs8fsgo7hpmmg" path="res://icon.svg" id="6_c0umw"]
 [ext_resource type="Texture2D" uid="uid://cg571666bx4js" path="res://common/control/assets/mainchar/_a_frm0,100.png" id="7_s50uu"]
 [ext_resource type="Texture2D" uid="uid://kshjgi4we0ku" path="res://common/control/assets/mainchar/_a_frm1,100.png" id="8_dy3nw"]
@@ -53,7 +52,11 @@
 [ext_resource type="Texture2D" uid="uid://b0ovk1sra156h" path="res://common/control/assets/rightmainchar/_a_frm13,100.png" id="50_35ccc"]
 [ext_resource type="Texture2D" uid="uid://bygp75f7wifhg" path="res://common/control/assets/rightmainchar/_a_frm14,100.png" id="51_rp61y"]
 [ext_resource type="Script" uid="uid://dpbb04t1hfhpn" path="res://common/objects/scripts/InfoInteractable.cs" id="53_i6lsf"]
+[ext_resource type="Script" uid="uid://c2sm4mbss0exl" path="res://common/control/scripts/PlayAnim.cs" id="54_c2tsv"]
 [ext_resource type="Texture2D" uid="uid://b0hpaanixq65h" path="res://levels/main/assets/backgrounds/bedroom.webp" id="54_c8xaj"]
+[ext_resource type="Texture2D" uid="uid://b3h2xtq2egk1i" path="res://levels/main/assets/backgrounds/meetwithfriend.png" id="55_1njar"]
+[ext_resource type="Texture2D" uid="uid://be0kefvp4g3wo" path="res://levels/main/assets/backgrounds/lunch.webp" id="55_cx3x5"]
+[ext_resource type="Texture2D" uid="uid://k5wv0dlmuw6n" path="res://levels/main/assets/backgrounds/lecture.webp" id="56_cx3x5"]
 
 [sub_resource type="Animation" id="Animation_gonaa"]
 resource_name = "PopDown"
@@ -118,6 +121,9 @@ size = Vector2(300, 30)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c8xaj"]
 data = PackedVector3Array(150, 0, 15, -150, 0, 15, 150, 0, -15, -150, 0, 15, -150, 0, -15, 150, 0, -15)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c0umw"]
+radius = 1.1162373
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iab0w"]
 animations = [{
@@ -272,13 +278,6 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vged4"]
-height = 0.5614624
-radius = 0.59033203
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_c0umw"]
-radius = 1.1162373
-
 [node name="Node3D" type="Node3D" unique_id=194959693]
 script = ExtResource("1_iab0w")
 
@@ -295,8 +294,14 @@ metadata/_edit_lock_ = true
 
 [node name="Div" type="HSplitContainer" parent="UI/DialoguePanel" unique_id=787664524]
 layout_mode = 2
-split_offsets = PackedInt32Array(1779)
-split_offset = 1779
+split_offsets = PackedInt32Array(423)
+split_offset = 423
+
+[node name="Speaker" type="RichTextLabel" parent="UI/DialoguePanel/Div" unique_id=1528668857]
+layout_mode = 2
+bbcode_enabled = true
+text = "character 1"
+fit_content = true
 
 [node name="Content" type="RichTextLabel" parent="UI/DialoguePanel/Div" unique_id=1760451628]
 layout_mode = 2
@@ -340,6 +345,7 @@ texture = ExtResource("6_c0umw")
 metadata/_edit_lock_ = true
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1394377459]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=890724447]
@@ -350,38 +356,81 @@ metadata/_edit_lock_ = true
 shape = SubResource("ConcavePolygonShape3D_c8xaj")
 metadata/_edit_lock_ = true
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1049987041 groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.58675, 1.1538775, -5.542607)
-script = ExtResource("6_3ymrs")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=1282012110]
-transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, 0, 0, 0)
-billboard = 1
-render_priority = 24
-sprite_frames = SubResource("SpriteFrames_iab0w")
-frame_progress = 0.1917711
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=49990731]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0019836426, 0)
-shape = SubResource("CylinderShape3D_vged4")
-metadata/_edit_lock_ = true
-
 [node name="TestInteractable" type="Area3D" parent="." unique_id=2011912808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6041045, 0.8121805, -1.6538835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.09421, 0.8121805, -47.342117)
+visible = false
 script = ExtResource("53_i6lsf")
 InfoDialogueFilePath = "res://levels/main/dialogue/example.json"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestInteractable" unique_id=95554823]
 shape = SubResource("SphereShape3D_c0umw")
 
-[node name="bedroom_bg" type="Sprite3D" parent="." unique_id=1324228657]
-transform = Transform3D(1.8249478, 0, 0.013823867, 0, 1.8249998, 0, -0.013823688, 0, 1.8249477, -143.46051, 2.0837476, -8.075193)
-texture = ExtResource("54_c8xaj")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2142483066]
 transform = Transform3D(0.99664706, -0.07101948, -0.04063178, 0.07627171, 0.9861702, 0.14714314, 0.029619815, -0.14974883, 0.98828036, -144.46951, 1.7274978, -3.123136)
 fov = 55.0
+
+[node name="bedroom" type="Node3D" parent="." unique_id=1595489636]
+transform = Transform3D(0.99988526, 0, 0.015148812, 0, 1, 0, -0.015148812, 0, 0.99988526, -405.3801, 5.8865867, -20.828846)
+
+[node name="bedroom" type="Sprite3D" parent="bedroom" unique_id=1324228657]
+transform = Transform3D(2.5679264, 0, -0.019451637, 0, 2.568, 0, 0.019451637, 0, 2.5679264, 261.6384, -4.080536, 14.25569)
+texture = ExtResource("54_c8xaj")
+
+[node name="c1" type="AnimatedSprite3D" parent="bedroom" unique_id=1282012110]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1, 0, 0.015148814, 0, 0.99988526, 260.56213, -5.2177835, 18.360342)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="outside" type="Node3D" parent="." unique_id=1603548870]
+transform = Transform3D(0.715, 0, -9.313226e-10, 0, 0.71499985, 0, 0, 0, 0.7149999, -144.58676, 1.1538777, -5.5426073)
+visible = false
+
+[node name="cdrlc" type="Sprite3D" parent="outside" unique_id=556774441]
+transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -5.969635, 2.6386557, -1.9655862)
+texture = ExtResource("55_1njar")
+
+[node name="c1" type="AnimatedSprite3D" parent="outside" unique_id=519669349]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, 1.6773834, -1.0511055, -2.0958238)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="lunch" type="Node3D" parent="." unique_id=1561881202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.98909, -1.5258789e-05, -4.3983154)
+visible = false
+
+[node name="lunch" type="Sprite3D" parent="lunch" unique_id=2107857798]
+transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -1.3256226, 2.5191286, -3.6037807)
+texture = ExtResource("55_cx3x5")
+
+[node name="c1" type="AnimatedSprite3D" parent="lunch" unique_id=1811082520]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -2.5406952, 0.18107891, -3.44319)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
+[node name="lecture" type="Node3D" parent="." unique_id=297783096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.17908, -3.0517578e-05, -3.6907892)
+visible = false
+
+[node name="hall" type="Sprite3D" parent="lecture" unique_id=543977130]
+transform = Transform3D(0.97811323, 0, 0.014819136, 0, 0.9782246, 0, -0.014818952, 0, 0.9781124, -1.6516266, 1.4919689, -2.576542)
+texture = ExtResource("56_cx3x5")
+
+[node name="c1" type="AnimatedSprite3D" parent="lecture" unique_id=1858479344]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
 
 [connection signal="body_entered" from="TestInteractable" to="TestInteractable" method="_on_body_entered"]
 [connection signal="body_exited" from="TestInteractable" to="TestInteractable" method="_on_body_exited"]
