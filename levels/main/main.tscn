@@ -322,20 +322,52 @@ script = ExtResource("54_c2tsv")
 [node name="insideCDRLC" type="Sprite3D" parent="teamFormation" unique_id=252591247]
 texture = ExtResource("54_h45dr")
 
+[node name="c1" type="AnimatedSprite3D" parent="teamFormation" unique_id=1442710595]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
 [node name="workshop1" type="Node3D" parent="." unique_id=1566257886]
 
 [node name="lectureHall" type="Sprite3D" parent="workshop1" unique_id=316271830]
 texture = ExtResource("55_nr731")
+
+[node name="c1" type="AnimatedSprite3D" parent="workshop1" unique_id=1476865458]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
 
 [node name="workshop2" type="Node3D" parent="." unique_id=1924516588]
 
 [node name="lectureHall" type="Sprite3D" parent="workshop2" unique_id=1272447877]
 texture = ExtResource("56_1j6i2")
 
+[node name="c1" type="AnimatedSprite3D" parent="workshop2" unique_id=760658632]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
+
 [node name="dinner" type="Node3D" parent="." unique_id=568724560]
 
 [node name="exitCDRLC" type="Sprite3D" parent="dinner" unique_id=42278296]
 texture = ExtResource("57_2fgvb")
+
+[node name="c1" type="AnimatedSprite3D" parent="dinner" unique_id=983966399]
+transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1.0000001, 0, 0.015148814, 0, 0.99988526, -5.648697, -0.62943935, -4.9375916)
+billboard = 1
+render_priority = 24
+sprite_frames = SubResource("SpriteFrames_iab0w")
+frame_progress = 0.1917711
+script = ExtResource("54_c2tsv")
 
 [connection signal="body_entered" from="TestInteractable" to="TestInteractable" method="_on_body_entered"]
 [connection signal="body_exited" from="TestInteractable" to="TestInteractable" method="_on_body_exited"]
