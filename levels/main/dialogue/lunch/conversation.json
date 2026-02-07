@@ -103,21 +103,21 @@
     "Speaker": "C2",
     "Sprite": "C2",
     "Content": "I'm sure it'll be fine, you'll do great.",
-    "Effect": "",
+    "Effect": "teamFormScene",
     "Next": "12"
   },
   "12": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "Thanks, I feel a little bit better about it now.",
-    "Effect": "",
+    "Effect": "teamFormScene",
     "Next": "STOP"
   },
   "13": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "Well, hopefully one of us is more confident about this...",
-    "Effect": "",
+    "Effect": "teamFormScene",
     "Next": "STOP"
   }
 }
