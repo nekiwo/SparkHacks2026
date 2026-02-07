@@ -1,0 +1,44 @@
+{
+  "Start": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Hey, they finally brought the pizza in for our group!",
+    "Effect": "",
+    "Next": "2"
+  },
+  "2": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Yea, but I don't really feel too hungry.",
+    "Effect": "",
+    "Next": "3"
+  },
+  "3": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "If you want, we can all go somewhere else instead.",
+    "Effect": "",
+    "Next": "4"
+  },
+  "4": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Any ideas?",
+    "Effect": "",
+    "Next": "5"
+  },
+  "5": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "I heard that they recently open a new Giordanos on Halsted. If you want, you can join us.",
+    "Effect": "",
+    "Next": "6"
+  },
+  "6": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I think I'll just head home instead.",
+    "Effect": "",
+    "Next": "STOP"
+  }
+}
