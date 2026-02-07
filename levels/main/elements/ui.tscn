@@ -182,12 +182,6 @@ bbcode_enabled = true
 text = "option 2"
 fit_content = true
 
-[node name="Option3" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=1754967277]
-layout_mode = 2
-bbcode_enabled = true
-text = "option 2"
-fit_content = true
-
 [node name="DialogueAnim" type="AnimationPlayer" parent="DialoguePanel" unique_id=167286818]
 libraries/ = SubResource("AnimationLibrary_gonaa")
 
