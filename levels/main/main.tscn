@@ -257,12 +257,10 @@ transform = Transform3D(0.99988526, 0, 0.015148812, 0, 1, 0, -0.015148812, 0, 0.
 
 [node name="bedroom" type="Sprite3D" parent="bedroom" unique_id=1324228657]
 transform = Transform3D(2.5679264, 0, -0.019451637, 0, 2.568, 0, 0.019451637, 0, 2.5679264, 261.6384, -4.080536, 14.25569)
-visible = false
 texture = ExtResource("54_c8xaj")
 
 [node name="c1" type="AnimatedSprite3D" parent="bedroom" unique_id=1282012110]
 transform = Transform3D(0.99988526, 0, -0.015148814, 0, 1, 0, 0.015148814, 0, 0.99988526, 260.56213, -5.2177835, 18.360342)
-visible = false
 billboard = 1
 render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
