@@ -83,6 +83,10 @@ public partial class DialoguePanel : PanelContainer
 			_dialogueOptions.Visible = true;
 			for (int j = 0; j < currDialogue.Options.Count; j++)
 			{
+                if (currDialogue.Options[j] == null || currDialogue.Options[j].Content == "")
+                {
+                    continue;
+                }
 				RichTextLabel optionText = _GetOption(j);
 				optionText.Text = "- " + currDialogue.Options[j].Content;
 				optionText.AddThemeColorOverride("default_color", new Color("5e5e5e"));
