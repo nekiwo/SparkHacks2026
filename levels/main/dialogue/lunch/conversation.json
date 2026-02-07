@@ -1,0 +1,123 @@
+{
+  "Start": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "There you are.",
+    "Effect": "",
+    "Next": "2"
+  },
+  "2": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Just us?",
+    "Effect": "",
+    "Next": "3"
+  },
+  "3": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Yeah, they had a class.",
+    "Effect": "",
+    "Next": "4",
+    "Options": [
+      {
+        "Content": "I skipped my class.",
+        "Next": "4"
+      },
+      {
+        "Content": "Oh, bummer.",
+        "Next": "7"
+      }
+    ]
+  },
+  "4": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I skipped my class.",
+    "Effect": "",
+    "Next": "5"
+  },
+  "5": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "And they didn't. What's your point?",
+    "Effect": "",
+    "Next": "6"
+  },
+  "6": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Nothing, nevermind.",
+    "Effect": "",
+    "Next": "9"
+  },
+  "7": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "Oh, what a shame.",
+    "Effect": "",
+    "Next": "8"
+  },
+  "8": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Yeah, they love this place.",
+    "Effect": "",
+    "Next": "9"
+  },
+  "9": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Are you excited for the hackathon?",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "Yeah, I can't wait.",
+        "Next": "10"
+      },
+      {
+        "Content": "Not really, I'm super nervous.",
+        "Next": "14"
+      }
+    ]
+  },
+  "10": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "That's good. I'm kinda nervous about it myself.",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "I'm sure it'll be fine, you'll do great.",
+        "Next": "11"
+      },
+      {
+        "Content": "Honestly, I'm a little nervous about it too.",
+        "Next": "13"
+      }
+    ]
+  },
+  "11": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "I'm sure it'll be fine, you'll do great.",
+    "Effect": "",
+    "Next": "12"
+  },
+  "12": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Thanks, I feel a little bit better about it now.",
+    "Effect": "",
+    "Next": "STOP"
+  },
+  "13": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Well, hopefully one of us is more confident about this...",
+    "Effect": "",
+    "Next": "STOP"
+  }
+}
