@@ -74,20 +74,65 @@
     "Sprite": "C1",
     "Content": "Dang. That's alright though, I'm down to make that.",
     "Effect": "",
-    "Next": "STOP"
+    "Next": "12"
   },
   "10": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "You actually want to make my idea? That's great!",
     "Effect": "",
-    "Next": "STOP"
+    "Next": "12"
   },
   "11": {
     "Speaker": "C1",
     "Sprite": "C1",
     "Content": "Your idea sounds cool, I'm down to make that.",
     "Effect": "",
+    "Next": "12"
+  },
+  "12": {
+    "Speaker": "F",
+    "Sprite": "F",
+    "Content": "There's a few workshops we could go to, but I think we only have the time for one.",
+    "Effect": "",
+    "Next": "13"
+  },
+  "13": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "I'm pretty interested in the Grainger workshop.",
+    "Effect": "",
+    "Next": "14"
+  },
+  "14": {
+    "Speaker": "C2",
+    "Sprite": "C2",
+    "Content": "84.51 is also doing a workshop that looked interesting. I think we should...",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "go to the Grainger workshop.",
+        "Next": "15"
+      },
+      {
+        "Content": "go to the 84.51 workshop.",
+        "Next": "16"
+      }
+    ]
+  },
+  "15": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Great, let's go to that one.",
+    "Effect": "workshop1Scene",
+    "Next": "STOP"
+  },
+  "16": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "Oh alright, let's go to that one.",
+    "Effect": "workshop2Scene",
     "Next": "STOP"
   }
 }
