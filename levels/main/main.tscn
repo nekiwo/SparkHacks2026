@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://bkrtrpm2cfwgu"]
 
 [ext_resource type="Script" uid="uid://cl85d66krribv" path="res://levels/main/scripts/MainScript.cs" id="1_iab0w"]
-[ext_resource type="Theme" uid="uid://djg437xs7sqjl" path="res://common/ui/ui_theme.tres" id="1_wdj6m"]
-[ext_resource type="Script" uid="uid://dx6syrldr6cin" path="res://common/ui/scripts/DialoguePanel.cs" id="2_l8qe7"]
-[ext_resource type="AudioStream" uid="uid://7kfb1uen10iu" path="res://common/ui/sounds/mech.mp3" id="3_gonaa"]
-[ext_resource type="AudioStream" uid="uid://cho0300yneduv" path="res://common/ui/sounds/pop.mp3" id="4_iab0w"]
-[ext_resource type="Texture2D" uid="uid://cs8fsgo7hpmmg" path="res://icon.svg" id="6_c0umw"]
+[ext_resource type="PackedScene" uid="uid://b7lpjdvc4aw6o" path="res://levels/main/elements/ui.tscn" id="2_i6lsf"]
 [ext_resource type="Texture2D" uid="uid://cg571666bx4js" path="res://common/control/assets/mainchar/_a_frm0,100.png" id="7_s50uu"]
 [ext_resource type="Texture2D" uid="uid://kshjgi4we0ku" path="res://common/control/assets/mainchar/_a_frm1,100.png" id="8_dy3nw"]
 [ext_resource type="Texture2D" uid="uid://kdnuvoqphmsv" path="res://common/control/assets/mainchar/_a_frm2,100.png" id="9_uj5r8"]
@@ -57,60 +53,6 @@
 [ext_resource type="Texture2D" uid="uid://b3h2xtq2egk1i" path="res://levels/main/assets/backgrounds/meetwithfriend.png" id="55_1njar"]
 [ext_resource type="Texture2D" uid="uid://be0kefvp4g3wo" path="res://levels/main/assets/backgrounds/lunch.webp" id="55_cx3x5"]
 [ext_resource type="Texture2D" uid="uid://k5wv0dlmuw6n" path="res://levels/main/assets/backgrounds/lecture.webp" id="56_cx3x5"]
-
-[sub_resource type="Animation" id="Animation_gonaa"]
-resource_name = "PopDown"
-length = 0.6333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(52, 668), Vector2(52, 1137)]
-}
-
-[sub_resource type="Animation" id="Animation_vc640"]
-resource_name = "PopUp"
-length = 0.56666666
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(52, 1137), Vector2(52, 668)]
-}
-
-[sub_resource type="Animation" id="Animation_f6gjy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(52, 1137)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gonaa"]
-_data = {
-&"PopDown": SubResource("Animation_gonaa"),
-&"PopUp": SubResource("Animation_vc640"),
-&"RESET": SubResource("Animation_f6gjy")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8xaj"]
 transparency = 1
@@ -281,69 +223,6 @@ animations = [{
 [node name="Node3D" type="Node3D" unique_id=194959693]
 script = ExtResource("1_iab0w")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=680231607]
-
-[node name="DialoguePanel" type="PanelContainer" parent="UI" unique_id=1607413635]
-offset_left = 52.0
-offset_top = 1137.0
-offset_right = 1861.0
-offset_bottom = 1500.0007
-theme = ExtResource("1_wdj6m")
-script = ExtResource("2_l8qe7")
-metadata/_edit_lock_ = true
-
-[node name="Div" type="HSplitContainer" parent="UI/DialoguePanel" unique_id=787664524]
-layout_mode = 2
-split_offsets = PackedInt32Array(423)
-split_offset = 423
-
-[node name="Speaker" type="RichTextLabel" parent="UI/DialoguePanel/Div" unique_id=1528668857]
-layout_mode = 2
-bbcode_enabled = true
-text = "character 1"
-fit_content = true
-
-[node name="Content" type="RichTextLabel" parent="UI/DialoguePanel/Div" unique_id=1760451628]
-layout_mode = 2
-theme = ExtResource("1_wdj6m")
-bbcode_enabled = true
-text = "kcxhjbsid sdjfsd fnsdnf sjfdn skjdfn skjdfn skd"
-scroll_active = false
-
-[node name="Options" type="VBoxContainer" parent="UI/DialoguePanel/Div" unique_id=430811503]
-visible = false
-layout_mode = 2
-
-[node name="Option0" type="RichTextLabel" parent="UI/DialoguePanel/Div/Options" unique_id=194162932]
-layout_mode = 2
-bbcode_enabled = true
-text = "option 1"
-fit_content = true
-
-[node name="Option1" type="RichTextLabel" parent="UI/DialoguePanel/Div/Options" unique_id=283666550]
-layout_mode = 2
-bbcode_enabled = true
-text = "option 2"
-fit_content = true
-
-[node name="DialogueAnim" type="AnimationPlayer" parent="UI/DialoguePanel" unique_id=711013289]
-libraries/ = SubResource("AnimationLibrary_gonaa")
-
-[node name="MechSound" type="AudioStreamPlayer" parent="UI/DialoguePanel" unique_id=1076244319]
-stream = ExtResource("3_gonaa")
-
-[node name="PopSound" type="AudioStreamPlayer" parent="UI/DialoguePanel" unique_id=824624862]
-stream = ExtResource("4_iab0w")
-
-[node name="InteractIcon" type="TextureRect" parent="UI" unique_id=1750968443]
-visible = false
-offset_left = 1733.0
-offset_top = 51.0
-offset_right = 1861.0
-offset_bottom = 179.0
-texture = ExtResource("6_c0umw")
-metadata/_edit_lock_ = true
-
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1394377459]
 visible = false
 metadata/_edit_lock_ = true
@@ -431,6 +310,8 @@ render_priority = 24
 sprite_frames = SubResource("SpriteFrames_iab0w")
 frame_progress = 0.1917711
 script = ExtResource("54_c2tsv")
+
+[node name="UI" parent="." unique_id=1433847682 instance=ExtResource("2_i6lsf")]
 
 [connection signal="body_entered" from="TestInteractable" to="TestInteractable" method="_on_body_entered"]
 [connection signal="body_exited" from="TestInteractable" to="TestInteractable" method="_on_body_exited"]

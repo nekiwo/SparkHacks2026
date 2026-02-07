@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b7lpjdvc4aw6o"]
+
+[ext_resource type="Theme" uid="uid://djg437xs7sqjl" path="res://common/ui/ui_theme.tres" id="1_ovnrq"]
+[ext_resource type="Script" uid="uid://dx6syrldr6cin" path="res://common/ui/scripts/DialoguePanel.cs" id="2_6x8q5"]
+[ext_resource type="AudioStream" uid="uid://7kfb1uen10iu" path="res://common/ui/sounds/mech.mp3" id="3_ueiip"]
+[ext_resource type="AudioStream" uid="uid://cho0300yneduv" path="res://common/ui/sounds/pop.mp3" id="4_ub8vx"]
+[ext_resource type="Texture2D" uid="uid://cs8fsgo7hpmmg" path="res://icon.svg" id="5_o8iwq"]
+
+[sub_resource type="Animation" id="Animation_gonaa"]
+resource_name = "PopDown"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(52, 668), Vector2(52, 1137)]
+}
+
+[sub_resource type="Animation" id="Animation_vc640"]
+resource_name = "PopUp"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(52, 1137), Vector2(52, 668)]
+}
+
+[sub_resource type="Animation" id="Animation_f6gjy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(52, 1137)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gonaa"]
+_data = {
+&"PopDown": SubResource("Animation_gonaa"),
+&"PopUp": SubResource("Animation_vc640"),
+&"RESET": SubResource("Animation_f6gjy")
+}
+
+[node name="UI" type="CanvasLayer" unique_id=1433847682]
+
+[node name="DialoguePanel" type="PanelContainer" parent="." unique_id=748331120]
+offset_left = 52.0
+offset_top = 1137.0
+offset_right = 1861.0
+offset_bottom = 1500.0007
+theme = ExtResource("1_ovnrq")
+script = ExtResource("2_6x8q5")
+
+[node name="Div" type="HSplitContainer" parent="DialoguePanel" unique_id=561777531]
+layout_mode = 2
+split_offsets = PackedInt32Array(423)
+split_offset = 423
+
+[node name="Speaker" type="RichTextLabel" parent="DialoguePanel/Div" unique_id=1309537986]
+layout_mode = 2
+bbcode_enabled = true
+text = "character 1"
+fit_content = true
+
+[node name="Content" type="RichTextLabel" parent="DialoguePanel/Div" unique_id=1136753916]
+layout_mode = 2
+theme = ExtResource("1_ovnrq")
+bbcode_enabled = true
+text = "kcxhjbsid sdjfsd fnsdnf sjfdn skjdfn skjdfn skd"
+scroll_active = false
+
+[node name="Options" type="VBoxContainer" parent="DialoguePanel/Div" unique_id=203639253]
+visible = false
+layout_mode = 2
+
+[node name="Option0" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=610065700]
+layout_mode = 2
+bbcode_enabled = true
+text = "option 1"
+fit_content = true
+
+[node name="Option1" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=1596063360]
+layout_mode = 2
+bbcode_enabled = true
+text = "option 2"
+fit_content = true
+
+[node name="DialogueAnim" type="AnimationPlayer" parent="DialoguePanel" unique_id=167286818]
+libraries/ = SubResource("AnimationLibrary_gonaa")
+
+[node name="MechSound" type="AudioStreamPlayer" parent="DialoguePanel" unique_id=801865330]
+stream = ExtResource("3_ueiip")
+
+[node name="PopSound" type="AudioStreamPlayer" parent="DialoguePanel" unique_id=1644033395]
+stream = ExtResource("4_ub8vx")
+
+[node name="InteractIcon" type="TextureRect" parent="." unique_id=798453866]
+visible = false
+offset_left = 1733.0
+offset_top = 51.0
+offset_right = 1861.0
+offset_bottom = 179.0
+texture = ExtResource("5_o8iwq")
+metadata/_edit_lock_ = true
