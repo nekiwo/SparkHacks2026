@@ -50,9 +50,13 @@
 [ext_resource type="Script" uid="uid://dpbb04t1hfhpn" path="res://common/objects/scripts/InfoInteractable.cs" id="53_i6lsf"]
 [ext_resource type="Script" uid="uid://c2sm4mbss0exl" path="res://common/control/scripts/PlayAnim.cs" id="54_c2tsv"]
 [ext_resource type="Texture2D" uid="uid://b0hpaanixq65h" path="res://levels/main/assets/backgrounds/bedroom.webp" id="54_c8xaj"]
+[ext_resource type="Texture2D" uid="uid://cpxob5qvhv6kj" path="res://levels/main/assets/backgrounds/teamFormation.webp" id="54_h45dr"]
 [ext_resource type="Texture2D" uid="uid://b3h2xtq2egk1i" path="res://levels/main/assets/backgrounds/meetwithfriend.png" id="55_1njar"]
 [ext_resource type="Texture2D" uid="uid://be0kefvp4g3wo" path="res://levels/main/assets/backgrounds/lunch.webp" id="55_cx3x5"]
+[ext_resource type="Texture2D" uid="uid://brgkmb6wppbuc" path="res://levels/main/assets/backgrounds/workshop.webp" id="55_nr731"]
+[ext_resource type="Texture2D" uid="uid://dmiu4e8xfjjxj" path="res://levels/main/assets/backgrounds/workshop2.webp" id="56_1j6i2"]
 [ext_resource type="Texture2D" uid="uid://k5wv0dlmuw6n" path="res://levels/main/assets/backgrounds/lecture.webp" id="56_cx3x5"]
+[ext_resource type="Texture2D" uid="uid://brv7nmtuiychw" path="res://levels/main/assets/backgrounds/uicDinner.webp" id="57_2fgvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8xaj"]
 transparency = 1
@@ -315,13 +319,23 @@ script = ExtResource("54_c2tsv")
 
 [node name="teamFormation" type="Node3D" parent="." unique_id=1191247554]
 
-[node name="cdrlc" type="Sprite3D" parent="teamFormation" unique_id=252591247]
+[node name="insideCDRLC" type="Sprite3D" parent="teamFormation" unique_id=252591247]
+texture = ExtResource("54_h45dr")
 
 [node name="workshop1" type="Node3D" parent="." unique_id=1566257886]
 
+[node name="lectureHall" type="Sprite3D" parent="workshop1" unique_id=316271830]
+texture = ExtResource("55_nr731")
+
 [node name="workshop2" type="Node3D" parent="." unique_id=1924516588]
 
+[node name="lectureHall" type="Sprite3D" parent="workshop2" unique_id=1272447877]
+texture = ExtResource("56_1j6i2")
+
 [node name="dinner" type="Node3D" parent="." unique_id=568724560]
+
+[node name="exitCDRLC" type="Sprite3D" parent="dinner" unique_id=42278296]
+texture = ExtResource("57_2fgvb")
 
 [connection signal="body_entered" from="TestInteractable" to="TestInteractable" method="_on_body_entered"]
 [connection signal="body_exited" from="TestInteractable" to="TestInteractable" method="_on_body_exited"]
