@@ -136,21 +136,20 @@ _data = {
 [node name="DialoguePanel" type="PanelContainer" parent="." unique_id=748331120]
 offset_left = 52.0
 offset_top = 1137.0
-offset_right = 1861.0
-offset_bottom = 1500.0007
+offset_right = 1853.0
+offset_bottom = 1489.0
 theme = ExtResource("1_ovnrq")
 script = ExtResource("2_6x8q5")
 
 [node name="Div" type="HSplitContainer" parent="DialoguePanel" unique_id=561777531]
 layout_mode = 2
-split_offsets = PackedInt32Array(423)
-split_offset = 423
 
 [node name="Speaker" type="RichTextLabel" parent="DialoguePanel/Div" unique_id=1309537986]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 bbcode_enabled = true
 text = "character 1"
-fit_content = true
+horizontal_alignment = 1
 
 [node name="Content" type="RichTextLabel" parent="DialoguePanel/Div" unique_id=1136753916]
 layout_mode = 2
