@@ -56,6 +56,35 @@ public partial class MainScript : Node3D
 			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/lecture/talk.json", effects);
 		});
 
+		effects.Add("teamFormScene", async () =>
+		{
+			_root.GetNode<Node3D>("lecture").Visible = false;
+			_root.GetNode<Node3D>("lunch").Visible = false;
+			_root.GetNode<Node3D>("teamFormation").Visible = true;
+			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/team_formation/conversation.json", effects);
+		});
+		
+		effects.Add("workshop1Scene", async () =>
+		{
+			_root.GetNode<Node3D>("teamFormation").Visible = false;
+			_root.GetNode<Node3D>("workshop1").Visible = true;
+			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/workshop1/conversation.json", effects);
+		});
+		
+		effects.Add("workshop2Scene", async () =>
+		{
+			_root.GetNode<Node3D>("teamFormation").Visible = false;
+			_root.GetNode<Node3D>("workshop2").Visible = true;
+			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/workshop2/conversation.json", effects);
+		});
+		
+		effects.Add("dinnerScene", async () =>
+		{
+			_root.GetNode<Node3D>("workshop1").Visible = false;
+			_root.GetNode<Node3D>("workshop2").Visible = false;
+			_root.GetNode<Node3D>("dinner").Visible = true;
+			await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/dinner/conversation.json", effects);
+		});
 		
 
 		await _dialogueHandler.TriggerDialogue("res://levels/main/dialogue/apartment/bedroom.json", effects);

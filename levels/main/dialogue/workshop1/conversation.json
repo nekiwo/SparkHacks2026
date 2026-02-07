@@ -1,9 +1,9 @@
 {
   "Start": {
-    "Speaker": "System",
-    "Sprite": "System",
-    "Content": "Attending the first workshop with C1...",
-    "Effect": "",
-    "Next": "STOP"
+	"Speaker": "System",
+	"Sprite": "System",
+	"Content": "You attended the Grainer workshop.",
+	"Effect": "",
+	"Next": "STOP"
   }
 }

@@ -1,9 +1,9 @@
 {
   "Start": {
-    "Speaker": "System",
-    "Sprite": "System",
-    "Content": "Attending the second workshop without C1...",
-    "Effect": "",
-    "Next": "STOP"
+	"Speaker": "System",
+	"Sprite": "System",
+	"Content": "You attended the 84.51 workshop.",
+	"Effect": "",
+	"Next": "STOP"
   }
 }
