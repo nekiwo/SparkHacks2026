@@ -1,0 +1,35 @@
+{
+    "Start": {
+		"Speaker": "speaker",
+		"Sprite": "neutral",
+		"Content": "dialogue content test",
+		"Effect": "",
+        "Next": "",
+		"Options": [
+            {
+                "Content": "option 1 content",
+                "Next": "2"
+            },
+            {
+                "Content": "option 2 content",
+                "Next": "3"
+            }
+        ]
+	},
+    "2": {
+        "Speaker": "speaker",
+		"Sprite": "neutral",
+		"Content": "you selected option 1",
+		"Effect": "",
+        "Next": "STOP",
+		"Options": []
+    },
+    "3": {
+        "Speaker": "speaker",
+		"Sprite": "neutral",
+		"Content": "you selected option 2",
+		"Effect": "",
+        "Next": "STOP",
+		"Options": []
+    }
+}
