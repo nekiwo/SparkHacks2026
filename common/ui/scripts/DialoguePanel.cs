@@ -42,27 +42,32 @@ public partial class DialoguePanel : PanelContainer
 
 		// For each dialogue
 		Dialogue currDialogue = dialogueChain["Start"];
-		while (currDialogue.Next != "STOP")
+		while (currDialogue != null)
 		{
 			// Update info
 			_dialogueText.VisibleCharacters = 0;
 			_dialogueText.Text = currDialogue.Content;
 			_speakerText.Text = "[b]" + currDialogue.Speaker + "[/b]";
 
-			// TODO: Update speaker info
+			await _RevealText(currDialogue.Content); // Text animation
+			// TODO: show continue icon
+			await _KeyboardInput(_interact); // Wait for button
 
 			// Execute effect
 			GD.Print("EFFECT: " + currDialogue.Effect);
 			if (currDialogue.Effect != "")
 			{
+				GD.Print("exiting at l60");
+				_dialogueAnim.Play("PopDown");
+				await ToSignal(GetTree().CreateTimer(1.0), "timeout");
+				await _transition.PlayIn();
 				effects[currDialogue.Effect]();
+				return;
 			}
-
-			await _RevealText(currDialogue.Content); // Text animation
-			// TODO: show continue icon
-			await _KeyboardInput(_interact); // Wait for button
+			
 			if (currDialogue.Options == null || currDialogue.Options.Count == 0)
 			{
+				GD.Print("continueing at l68");
 				currDialogue = dialogueChain[currDialogue.Next];
 				continue;
 			}
@@ -82,8 +87,8 @@ public partial class DialoguePanel : PanelContainer
 
 			// Wait for response
 			int selectedOption = await _OptionInput(currDialogue.Options.Count);
-			Dialogue nextDialogue = dialogueChain[currDialogue.Options[selectedOption].Next];
-			if (nextDialogue.Next != "STOP")
+			string next = currDialogue.Options[selectedOption].Next;
+			if (next != "STOP")
 			{
 
 				_speakerText.Visible = true;
@@ -93,7 +98,11 @@ public partial class DialoguePanel : PanelContainer
 				{
 					_GetOption(j).Visible = false;
 				}
+			} else
+			{
+				break;
 			}
+			Dialogue nextDialogue = dialogueChain[next];
 			
 			// Open new dialogue and continue
 			currDialogue = nextDialogue;
