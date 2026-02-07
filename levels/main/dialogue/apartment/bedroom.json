@@ -1,8 +1,35 @@
 {
-    "Start": {
-        "Speaker": "speaker",
-        "Sprite": "neutral",
-        "Content": "Nothing but some clothes...",
-        "Effect": "",
-        "Next": ""
+  "Start": {
+    "Speaker": "speaker",
+    "Sprite": "neutral",
+    "Content": "Time to go to campus...",
+    "Effect": "",
+    "Next": "",
+    "Options": [
+      {
+        "Content": "WALK",
+        "Next": "2"
+      },
+      {
+        "Content": "BUS",
+        "Next": "3"
+      }
+    ]
+  },
+  "2": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "It's nice out, I'll walk.",
+    "Effect": "WalkScene",
+    "Next": "STOP",
+    "Options": []
+  },
+  "3": {
+    "Speaker": "C1",
+    "Sprite": "C1",
+    "Content": "I'm tired. I'll take the bus.",
+    "Effect": "BusScene",
+    "Next": "STOP",
+    "Options": []
+  }
 }
