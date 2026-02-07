@@ -143,6 +143,8 @@ script = ExtResource("2_6x8q5")
 
 [node name="Div" type="HSplitContainer" parent="DialoguePanel" unique_id=561777531]
 layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Speaker" type="RichTextLabel" parent="DialoguePanel/Div" unique_id=1309537986]
 custom_minimum_size = Vector2(400, 0)
@@ -169,6 +171,18 @@ text = "option 1"
 fit_content = true
 
 [node name="Option1" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=1596063360]
+layout_mode = 2
+bbcode_enabled = true
+text = "option 2"
+fit_content = true
+
+[node name="Option2" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=311347795]
+layout_mode = 2
+bbcode_enabled = true
+text = "option 2"
+fit_content = true
+
+[node name="Option3" type="RichTextLabel" parent="DialoguePanel/Div/Options" unique_id=1754967277]
 layout_mode = 2
 bbcode_enabled = true
 text = "option 2"
